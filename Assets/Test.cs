@@ -26,9 +26,11 @@ public class Boss
     //Magic関数
     public void Magic(int mahou)
     {
-        this.mp -= mahou;
-        if (this.mp >= 5)
+        //this.mp -= mahou;　→→初回提出時
+        //if (this.mp >= 5)　→→初回提出時
+        if (this.mp >= mahou)
         {
+            mp -= mahou;
             Debug.Log("魔法攻撃をした。残りMPは" + this.mp + "。");
         }
         else
@@ -50,11 +52,13 @@ public class Test : MonoBehaviour {
         //防御用の関数を呼び出す
         lastboss.Defence(3);
         //Magic関数を呼び出す
-        lastboss.Magic(5);
-        
-        for(int i = 0; i < 10; i++)
+        //lastboss.Magic(5);　→→3回目提出時に非表示
+
+
+        //Magic関数を10回使った後に、更にMagic関数を呼び出すと、mpが足りないメッセージが表示される
+        //for (int i = 0; i < 10; i++)　→→2回目提出時
+        for (int i = 0; i < 11 ; i++)　//→→3回目提出時
         {
-            //Magic関数を10回使った後に、更にMagic関数を呼び出すと、mpが足りないメッセージが表示される
             lastboss.Magic(5);
         }
 
@@ -81,7 +85,8 @@ public class Test : MonoBehaviour {
         }
         
         //for文を使って各要素を逆番に表示する
-        for (int i = 4; 0 <= i; i--)
+        //for (int i = 4; 0 <= i; i--)　→→初回提出時
+        for (int i = array.Length -1; 0 <= i; i--)
         {
             Debug.Log(array[i]);
         }
@@ -95,6 +100,6 @@ public class Test : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        
-        }
+       
+    }
 }
